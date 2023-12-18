@@ -11,6 +11,18 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     // increment, decreament, incrementByAmount loginc here
+    increment : (state) => {
+      return {...state, value : state.value + 1}
+    },
+    decreament : (state) => {
+      return {...state, value : state.value - 1}
+    },
+    incrementByAmount : (state, action) => {
+      if(!isNaN(action.payload.amount)){
+      return {...state, value : state.value + action.payload.amount}
+      } 
+      return state
+    }
   },
 });
 
